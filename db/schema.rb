@@ -12,24 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170112223712) do
 
-  create_table "mng_user", primary_key: "ID", id: :bigint, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "LOGIN_ID",    limit: 64,                 null: false, comment: "登录ID，可以是邮箱、手机号或通用标识符"
-    t.string   "NAME",        limit: 64,                 null: false
-    t.string   "EMAIL",       limit: 256,                null: false
-    t.string   "MOBILE",      limit: 32
-    t.string   "PASSWORD",    limit: 64,                 null: false, comment: "登录密码；MD5加密"
-    t.datetime "CREATE_TIME",                            null: false, comment: "用户注册时间"
-    t.boolean  "STATUS",                  default: true, null: false, comment: "1-正常；2-禁用；3-已删除"
-    t.index ["LOGIN_ID"], name: "LOGIN_ID_UNIQUE", unique: true, using: :btree
-  end
-
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at",      null: false
